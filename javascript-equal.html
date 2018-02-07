@@ -1,11 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title></title>
-</head>
 <body>
 <script>
 console.group("block1");
+console.log('block1-1: 2 ? true: false', 2 ? true: false);
+console.log('block1-2: 2==true', 2==true);
+console.log('block1-3: 1==true', 1==true);
+console.log('block1-4: 0 == ""', 0=="");
+console.log('block1-5: 0 == "  "', 0=="  ");
+console.log('block1-4: 0 == "ee"', 0=="ee");
+console.groupEnd();
+</script>
+
+<script>
+console.group("block2");
+console.log('block2-1: []', [] ? true: false);
+console.log('block2-2: {}', {} ? true: false);
+console.groupEnd();
+</script>
+
+<script>
+console.group("block3");
+console.log('block3-1: []==[]', [] == []);
+console.log('block3-2: {}=={}', {} == {});
+console.log('block3-3: []==![]', [] == ![]);
+console.log('block3-4: []==0', [] == 0);
+console.log('block3-5: {}==0', {}== 0);
+console.log('block3-6: {toString : () =>"0"} == 0',  { toString : () =>"0"} == 0);
+console.log('block3-6: {toString : () =>""} == 0',  { toString : () =>""} == 0);
+console.groupEnd();
+</script>
+
+<script>
+console.group("block4");
+var a4= {}, b4 = {};
+var c4 = '[object Object]';
+console.log('block4-1: a4==c4', a4 == c4);
+console.log('block4-2: b4==c4', b4 == c4);
+console.log('block4-3: a4==b4', a4 == b4);
+console.groupEnd();
+</script>
+
+<script>
+console.group("block4");
+var a5= {
+ valueOf: function () {
+    console.log('valueOf...');
+    return 0;
+ },
+ toString: function(){
+    console.log('toString...');
+    return '11';
+ }
+};
+console.log('block4-1: a4==c4', a5);
+
+console.log('--------')
+console.log('block4-2: b4==c4', +a5);
+console.log('--------')
+console.log('block4-1: a4==c4', a5.toString());
+console.log('--------')
+console.log('block4-3: a4==b4', a5 == 0);
+console.log('--------')
+console.log('block4-3: a4==b4', a5 == '11');
 console.groupEnd();
 </script>
 
