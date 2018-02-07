@@ -8,7 +8,7 @@
 
 ## 测试
 
-```
+```html
 <script>
 console.group("block1-下一块的变量不会提升到本块");
 console.log("block1-1", a);//undifined
