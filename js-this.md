@@ -38,7 +38,7 @@ Function.prototype.bind = Function.prototype.bind || function(context){
 
 ## 上下文和call，apply，bind
 
-call和apply是 **`调用`**，作用一样，只是函数接受参数的方式不太一样，**apply接受的数组，使用的较多**，尤其是不知道参数个数或者不关心参数是啥的时候。
+call和apply是 `调用`，作用一样，只是函数接受参数的方式不太一样，**apply接受的数组，使用的较多**，尤其是不知道参数个数或者不关心参数是啥的时候。
 
 ```js
   var func = function(arg1, arg2) {};
@@ -67,6 +67,10 @@ var foo = {
 ```
 
 就不需要用 that = this 先保存上下文了。参考：[http://www.cnblogs.com/tylerdonet/p/4864116.html](http://www.cnblogs.com/tylerdonet/p/4864116.html)
+
+
+
+
 
 另外 apply 会把输入参数转成数组形式，所以可以实现下面效果。
 
