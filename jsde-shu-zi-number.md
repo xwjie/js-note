@@ -75,12 +75,9 @@ console.log('{}', +({})); // NaN
 
 需要小心 +的隐形转换，如下，2个加号会出错，如果2个加号中间有空格，则不会报错，但由于进行了隐形转换，结果是错误的。
 
-
-
-```
+```js
 console.log('"aaa"+ +"bbb"',  "aaa"+ +"bbb");  // aaaNaN
 // console.log('"aaa"+ +"bbb"', "aaa"++"bbb");  // Uncaught ReferenceError: Invalid left-hand side expression in postfix operation
-
 ```
 
 
