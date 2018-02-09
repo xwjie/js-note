@@ -9,8 +9,10 @@ js里面的 0.1+0.2 不是 0.3，而是  0.30000000000000004。但并不是所�
 ```js
 console.log(0.1+0.2); // 
 console.log(0.1+0.1); //0.2
-console.log(0.1+0.3); //0.4 
+console.log(0.1+0.3); //0.4
 ```
+
+参考： https://segmentfault.com/a/1190000012175422
 
 
 
@@ -18,9 +20,9 @@ java里面，默认小数的double类型。0.1+0.2也不等于0.3。
 
 ```java
 public static void main(String[] args) {
-	System.out.println(0.1 + 0.2); // 0.30000000000000004
-	System.out.println(0.1f + 0.2f); // 0.3
-	System.out.println(0.1d + 0.2d); // 0.30000000000000004
+    System.out.println(0.1 + 0.2); // 0.30000000000000004
+    System.out.println(0.1f + 0.2f); // 0.3
+    System.out.println(0.1d + 0.2d); // 0.30000000000000004
 }
 ```
 
