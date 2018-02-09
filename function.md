@@ -10,7 +10,7 @@
   function getFn(key) {
     getFn.cache = getFn.cache ||  {}
     var value = getFn.cache[key];
-    
+
     if(!value){
       value = 'get some by key:' + key;
       console.log('add cache:' + key);
@@ -23,10 +23,7 @@
   console.log(getFn('key1'));
   console.log(getFn('key2'));
   console.log(getFn('key1'));
-
 ```
-
-
 
 如：编写实现如下的效果。
 
@@ -48,7 +45,7 @@ var ans = add(2)(3)(4);
 console.log(ans); // 9
 ```
 
-参考：http://www.cnblogs.com/zichi/p/4362292.html，注意，这个贴里面的这种实现方式有问题
+参考：[http://www.cnblogs.com/zichi/p/4362292.html，注意，这个贴里面的这种实现方式有问题](http://www.cnblogs.com/zichi/p/4362292.html，注意，这个贴里面的这种实现方式有问题)
 
 ```js
 function add(num){
@@ -63,8 +60,6 @@ alert(ans);
 
 原因很简单，因为add.num相当于全局变量。下次调用值会错误。
 
-
-
 ## 上下文和call，apply，bind
 
 上下文就是函数里面的this，js里面函数的上下文是可以动态改变的。
@@ -76,15 +71,13 @@ call和apply是调用，作用一样，只是函数接受参数的方式不太�
   // 就可以通过如下方式来调用：
   func.call(this, arg1, arg2);
   func.apply(this, [arg1, arg2])
-  
-  
+
+
   // 定义一个函数直接调用console.log
   function log(){
     console.log.apply(console, arguments);
   };
 ```
-
-
 
 **bind不是调用，而是返回一个新的函数**，bind的参数就是上下文。常见使用场景如下：
 
@@ -99,9 +92,7 @@ var foo = {
 }
 ```
 
-就不需要用 that = this 先保存上下文了。参考：http://www.cnblogs.com/tylerdonet/p/4864116.html
-
-
+就不需要用 that = this 先保存上下文了。参考：[http://www.cnblogs.com/tylerdonet/p/4864116.html](http://www.cnblogs.com/tylerdonet/p/4864116.html)
 
 另外 apply 会把输入参数转成数组形式，所以可以实现下面效果。
 
@@ -115,8 +106,6 @@ Math.max 是不能接受数组格式的参数的，我们可以使用apply。如
   var ans = Math.max.apply(null, a);
   console.log(ans);  // 6
 ```
-
-
 
 
 
