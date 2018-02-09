@@ -1,7 +1,6 @@
 # 上下文
 
-上下文就是函数里面的this，js里面函数的上下文是可以动态改变的。  
-
+上下文就是函数里面的this，js里面函数的上下文是可以动态改变的。
 
 ```js
 var User = {
@@ -16,6 +15,23 @@ console.log(User.getCount()); //1
 
 var func = User.getCount;
 console.log(func()); //undifined
+```
+
+
+
+第一次调用，在user对象里面调用，this就是user，第二次调用func是在window下，所以是undifined。
+
+帖子里还有手工实现bind的代码。
+
+```js
+// 手工实现bind函数
+Function.prototype.bind = Function.prototype.bind || function(context){
+  var self = this;
+
+  return function(){
+    return self.apply(context, arguments);
+  };
+}
 ```
 
 参考：[https://segmentfault.com/a/1190000000375138](https://segmentfault.com/a/1190000000375138)
