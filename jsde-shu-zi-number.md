@@ -27,7 +27,6 @@ public static void main(String[] args) {
 ## parseInt和parseFloat
 
 ```js
-
 console.group('parseInt');
 console.log(parseInt('77')); // 77
 console.log(parseInt('0x77')); // 119
@@ -46,12 +45,9 @@ console.log('123aaa', parseInt('123aaa'));  // 123 ,
 console.log('aaa123', parseInt('aaa123'));  // NaN , 
 console.log('{}', parseInt({})); // NaN
 console.groupEnd();
-
 ```
 
 ## Number
-
-
 
 ```js
 console.log('77', Number('77')); // 77
@@ -64,11 +60,7 @@ console.log('aaa123', Number('aaa123'));  // NaN
 console.log('{}', Number({})); // NaN
 ```
 
-
-
 ## +转换（和Number（）结果是一模一样的）
-
-
 
 ```js
 console.log('77', +'77'); // 77
@@ -79,6 +71,16 @@ console.log('啊啊啊', +'啊啊啊'); // NaN
 console.log('123aaa', +'123aaa');  // NaN， 这里和parseInt不一样 
 console.log('aaa123', +'aaa123');  // NaN 
 console.log('{}', +({})); // NaN
+```
+
+需要小心 +的隐形转换，如下，2个加号会出错，如果2个加号中间有空格，则不会报错，但由于进行了隐形转换，结果是错误的。
+
+
+
+```
+console.log('"aaa"+ +"bbb"',  "aaa"+ +"bbb");  // aaaNaN
+// console.log('"aaa"+ +"bbb"', "aaa"++"bbb");  // Uncaught ReferenceError: Invalid left-hand side expression in postfix operation
+
 ```
 
 
