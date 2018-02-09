@@ -80,5 +80,5 @@ console.log('"aaa"+ +"bbb"',  "aaa"+ +"bbb");  // aaaNaN
 // console.log('"aaa"+ +"bbb"', "aaa"++"bbb");  // Uncaught ReferenceError: Invalid left-hand side expression in postfix operation
 ```
 
-
+lint风格检查里面，不允许++运算符，我猜这也是一个原因吧。
 
