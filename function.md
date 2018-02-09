@@ -27,15 +27,9 @@
 
 第二次传入 key1 的时候，由于已经缓存，就可以直接返回之前的缓存数据。
 
-
-
 如：编写实现如下的效果。
 
-
-
 > 实现如下语法的功能：var a = add\(2\)\(3\)\(4\); //9
-
-
 
 首先，add函数肯定是返回一个函数，否则无法链式调用下去。第二，打印的时候显示对应的数字，所以要实现函数对象的**valueOf**函数
 
@@ -53,7 +47,11 @@ var ans = add(2)(3)(4);
 console.log(ans); // 9
 ```
 
-参考：[http://www.cnblogs.com/zichi/p/4362292.html，注意，这个贴里面的这种实现方式有问题](http://www.cnblogs.com/zichi/p/4362292.html，注意，这个贴里面的这种实现方式有问题)
+参考：http://www.cnblogs.com/zichi/p/4362292.html 
+
+
+
+注意，这个贴里面的这种实现方式有问题
 
 ```js
 function add(num){
