@@ -51,6 +51,8 @@ call和apply是 `调用`，作用一样，只是函数接受参数的方式不�
   function log(){
     console.log.apply(console, arguments);
   };
+  
+  // 更加简单的是 log = console.log ，但这个时候log是个变量，注意变量提升问题。
 ```
 
 **bind不是调用，而是返回一个新的函数**，bind的参数就是上下文。常见使用场景如下：
@@ -67,10 +69,6 @@ var foo = {
 ```
 
 就不需要用 that = this 先保存上下文了。参考：[http://www.cnblogs.com/tylerdonet/p/4864116.html](http://www.cnblogs.com/tylerdonet/p/4864116.html)
-
-
-
-
 
 另外 apply 会把输入参数转成数组形式，所以可以实现下面效果。
 

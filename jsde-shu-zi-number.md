@@ -82,3 +82,26 @@ console.log('"aaa"+ +"bbb"',  "aaa"+ +"bbb");  // aaaNaN
 
 lint风格检查里面，不允许++运算符，我猜这也是一个原因吧。
 
+
+
+## 弱类型转换
+
+
+
+注意字符串+0和-0的不同！字符串加其他东西会把别的转换字符串。
+
+
+
+```js
+var str = '123.45';
+
+console.log('+str',  +str);  // 123.45
+console.log('-str',  -str);  // -123.45
+console.log('str+0',  str+0);  // 注意：这里是字符串 '123.450'
+console.log('str-0',  str-0);  // 123.45
+console.log('str*1',  str*1);  // 123.45
+console.log('str/1',  str/1);  // 123.45
+```
+
+
+
