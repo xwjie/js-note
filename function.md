@@ -47,9 +47,7 @@ var ans = add(2)(3)(4);
 console.log(ans); // 9
 ```
 
-参考：http://www.cnblogs.com/zichi/p/4362292.html 
-
-
+参考：[http://www.cnblogs.com/zichi/p/4362292.html](http://www.cnblogs.com/zichi/p/4362292.html)
 
 注意，这个贴里面的这种实现方式有问题
 
@@ -64,7 +62,7 @@ var ans = add(3)(4)(5)(6);  // 18
 alert(ans);
 ```
 
-原因很简单，因为add.num相当于全局变量。下次调用值会错误。
+原因很简单，因为 `add.num `相当于全局变量。下次调用值会错误。
 
 ## 
 
