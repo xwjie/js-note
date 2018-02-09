@@ -17,8 +17,6 @@ var func = User.getCount;
 console.log(func()); //undifined
 ```
 
-
-
 第一次调用，在user对象里面调用，this就是user，第二次调用func是在window下，所以是undifined。
 
 帖子里还有手工实现bind的代码。
@@ -72,7 +70,7 @@ var foo = {
 
 > 找出数字数组中最大的元素（使用Math.max函数）
 
-Math.max 是不能接受数组格式的参数的，我们可以使用apply。如果
+Math.max 是不能接受数组格式的参数的，我们可以使用apply。如下
 
 ```js
   // 使用apply让函数支持数组格式参数
