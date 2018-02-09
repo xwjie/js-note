@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+console.group('小数');
+console.log(0.1+0.2); // 0.30000000000000004
+console.log(0.1+0.1); //0.2
+console.log(0.1+0.3); //0.4
+console.groupEnd();
+</script>
+
+<script>
+console.group('parseInt');
+console.log(parseInt('77')); // 77
+console.log(parseInt('0x77')); // 119
+console.log(parseInt('077'));  // 77 , 注意：我记得之前的版本，会把他当8机制，但现在测试没有发现这种情况出现
+
+// 十进制转换，可选（2，8，10，16）
+console.log(parseInt('077', 10)); //77
+console.groupEnd();
+</script>
+
+<script>
+console.group('parseInt 非数字');
+console.log('aaa', parseInt('aaa')); // NaN
+console.log('啊啊啊', parseInt('啊啊啊')); // NaN
+console.log('123aaa', parseInt('123aaa'));  // 123 , 
+console.log('aaa123', parseInt('aaa123'));  // NaN , 
+console.log('{}', parseInt({})); // NaN
+console.groupEnd();
+</script>
+
+<script>
+console.group('Number');
+console.log('77', Number('77')); // 77
+console.log('0x77', Number('0x77')); // 119
+console.log('077', Number('077')); // 77
+console.log('aaa', Number('aaa')); // NaN
+console.log('啊啊啊', Number('啊啊啊')); // NaN
+console.log('123aaa', Number('123aaa'));  // NaN， 这里和parseInt不一样 
+console.log('aaa123', Number('aaa123'));  // NaN 
+console.log('{}', Number({})); // NaN
+console.groupEnd();
+</script>
+
+
+<script>
+console.group('+转换');
+console.log('77', +'77'); // 77
+console.log('0x77', +'0x77'); // 119
+console.log('077', +'077'); // 77
+console.log('aaa', +'aaa'); // NaN
+console.log('啊啊啊', +'啊啊啊'); // NaN
+console.log('123aaa', +'123aaa');  // NaN， 这里和parseInt不一样 
+console.log('aaa123', +'aaa123');  // NaN 
+console.log('{}', +({})); // NaN
+console.groupEnd();
+</script>
+
+<script>
+console.group('小心');
+console.log('"aaa"+ +"bbb"',  "aaa"+ +"bbb");  // aaaNaN
+// console.log('"aaa"+ +"bbb"', "aaa"++"bbb");  // Uncaught ReferenceError: Invalid left-hand side expression in postfix operation
+console.groupEnd();
+</script>
+
+<script>
+console.group('弱类型转换');
+var str = '123.45';
+
+console.log('+str',  +str);  // 123.45
+console.log('-str',  -str);  // -123.45
+console.log('str+0',  str+0);  // 注意：这里是字符串 '123.450'
+console.log('str-0',  str-0);  // 123.45
+console.log('str*1',  str*1);  // 123.45
+console.log('str/1',  str/1);  // 123.45
+
+console.groupEnd();
+</script>
+
+</body>
+</html>
