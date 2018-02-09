@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+  function getFn(key) {
+    getFn.cache = getFn.cache ||  {}
+    var value = getFn.cache[key];
+    
+    if(!value){
+      value = 'get some by key:' + key;
+      console.log('add cache:' + key);
+      getFn.cache[key] = value;
+    }
+
+    return value;
+  }
+
+  console.log(getFn('key1'));
+  console.log(getFn('key2'));
+  console.log(getFn('key1'));
+</script>
+
+<script>
+function add(a) {
+  var temp = function(b) {
+    return add(a + b);
+  }
+  temp.valueOf = temp.toString = function() {
+    return a;
+  };
+  return temp;
+}
+var ans = add(2)(3)(4);
+console.log(ans); // 9
+</script>
+
+<script>
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+var User = {
+  count: 1,
+
+  getCount: function() {
+    return this.count;
+  }
+};
+
+console.log(User.getCount()); //1
+
+var func = User.getCount;
+console.log(func()); //undifined
+</script>
+
+<script>
+// 手工实现bind函数
+Function.prototype.bind = Function.prototype.bind || function(context){
+  var self = this;
+
+  return function(){
+    return self.apply(context, arguments);
+  };
+}
+</script>
+
+<script>
+  var func = function(arg1, arg2) {};
+  // 就可以通过如下方式来调用：
+  func.call(this, arg1, arg2);
+  func.apply(this, [arg1, arg2])
+
+  // 定义一个函数直接调用console.log
+  function log(){
+    console.log.apply(console, arguments);
+  };
+</script>
+
+<script>
+  // bind返回一个新函数
+  var foo = {
+      bar : 1,
+      eventBind: function(){
+          $('.someClass').on('click',function(event) {
+          console.log(this.bar); //1
+        }.bind(this));
+    }
+  }
+</script>
+
+<script>
+  // 使用apply让函数支持数组格式参数
+  var a = [1, 2, 3, 6, 5, 4];
+  var ans = Math.max.apply(null, a);
+  console.log(ans);  // 6
+</script>
+
+</body>
+</html>
