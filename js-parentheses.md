@@ -42,5 +42,13 @@ var a = (5).plus(3).minus(6);
 console.log(a); // 2
 ```
 
+**注意。还可以这样调用 `5['plus']`：**
+
+```js
+// 在数值上调用某个方法，数值会自动转为实例对象
+var b = 5['plus'](3)['minus'](6);
+console.log(b); // 2
+```
+
 
 
