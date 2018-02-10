@@ -1,8 +1,6 @@
-# clone属性-Object.assign 
+# clone属性-Object.assign
 
-参考 Object.assign 方法。 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Object/assign
-
-
+参考 Object.assign 方法。 [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Object/assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
 ```js
 console.group('使用Object.assign是浅copy');
