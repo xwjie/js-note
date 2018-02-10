@@ -26,6 +26,8 @@ public static void main(String[] args) {
 
 ## parseInt和parseFloat
 
+要注意的是`parseInt('123aaa') // 123 `
+
 ```js
 console.group('parseInt');
 console.log(parseInt('77')); // 77
@@ -48,6 +50,8 @@ console.groupEnd();
 ```
 
 ## Number
+
+要注意的是`Number('123aaa') // NaN， 这里和parseInt不一样`
 
 ```js
 console.log('77', Number('77')); // 77
@@ -82,15 +86,9 @@ console.log('"aaa"+ +"bbb"',  "aaa"+ +"bbb");  // aaaNaN
 
 lint风格检查里面，不允许++运算符，我猜这也是一个原因吧。
 
-
-
 ## 弱类型转换
 
-
-
 注意字符串+0和-0的不同！字符串加其他东西会把别的转换字符串。
-
-
 
 ```js
 var str = '123.45';
