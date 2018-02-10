@@ -12,4 +12,5 @@
 * [js的数字number](jsde-shu-zi-number.md)
 * [JSON.stringify函数](json-stringify.md)
 * [js的小数点](js-dot.md)
+* [clone属性-Object.assign](js-clone.md)
 
