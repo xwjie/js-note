@@ -10,4 +10,5 @@
 * [上下文](js-this.md)
 * [js的数字number](jsde-shu-zi-number.md)
 * [json.stringify函数](json-stringify.md)
+* [js的小括号](js-parentheses.md)
 
