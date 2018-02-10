@@ -1,10 +1,8 @@
 # JSON.stringify函数
 
-**`JSON.stringify()`**方法是将一个JavaScript值\(对象或者数组\)转换为一个 JSON字符串，如果指定了replacer是一个函数，则可以替换值，或者如果指定了replacer是一个数组，可选的仅包括指定的属性。
+`JSON.stringify()`方法是将一个JavaScript值\(对象或者数组\)转换为一个 JSON字符串，如果指定了replacer是一个函数，则可以替换值，或者如果指定了replacer是一个数组，可选的仅包括指定的属性。
 
- 参考： https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global\_Objects/JSON/stringify
-
-
+参考： https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global\_Objects/JSON/stringify
 
 ## 字符串加上引号
 
@@ -17,8 +15,9 @@
 * 非数组对象的属性不能保证以特定的顺序出现在序列化后的字符串中。
 * 布尔值、数字、字符串的包装对象在序列化过程中会自动转换成对应的原始值。
 
-* `undefined、`任意的函数以及 symbol 值，在序列化过程中会被忽略（出现在非数组对象的属性值中时）或者被转换成
+* `undefined、`任意的函数以及 symbol 值，在序列化过程中会被忽略（出现在非数组对象的属性值中时）或者被转换成  
   `null`（出现在数组中时）。
+
 * 所有以 symbol 为属性键的属性都会被完全忽略掉，即便`replacer`参数中强制指定包含了它们。
 * 不可枚举的属性会被忽略
 
@@ -99,6 +98,4 @@ console.log( JSON.stringify(foo, ['week', 'month']) ); // {"week":45,"month":7}
 ## 测试结果：
 
 ![](/assets/json.stringify-all.png)
-
-
 
