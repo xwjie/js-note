@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+console.group('被忽略的值')
+// 下面除了null，其他都会忽略
+var obj = {
+  a: null, // 保留
+  b: undefined, // undefined， 对象中忽略，数组中被转换成 null
+  c: Number, // 函数， 对象中忽略，数组中被转换成 null
+  d: function(){}, // 函数， 对象中忽略，数组中被转换成 null
+  e: Symbol(""), // Symbol， 对象中忽略，数组中被转换成 null
+};
+
+console.log( JSON.stringify(obj)); // {"a": null}
+console.log( JSON.stringify(obj, null, '\t' )); // 格式化输出
+
+var array1 = [
+  null, // 保留
+  undefined, // 转换成 null
+  Number, // 转换成 null
+  function(){}, // 转换成 null
+  Symbol(""), // 转换成 null
+];
+
+console.log( JSON.stringify(array1));  // [null,null,null,null,null]
+console.groupEnd();
+</script>
+
+<script>
+console.group('不可枚举的属性默认会被忽略')
+// 不可枚举的属性默认会被忽略：
+var obj2 = Object.create(
+        null, 
+        { 
+            x: { value: 'x', enumerable: false }, 
+            y: { value: 'y', enumerable: true } 
+        }
+    ); 
+console.log( JSON.stringify(obj2)); // "{"y":"y"}"
+console.groupEnd();
+
+</script>
+
+<script>
+console.group('给字符串加引号')
+var str = "abc";
+console.log( JSON.stringify(str)); // ""abc""
+console.groupEnd();
+</script>
+
+<script>
+console.group('对象的toJSON方法')
+var obj = {
+  foo: 'foo',
+  toJSON: function () {
+    return 'bar';
+  }
+};
+console.log(JSON.stringify(obj));      // '"bar"'
+console.log(JSON.stringify({x: obj})); // '{"x":"bar"}'
+console.groupEnd();
+</script>
+
+<script>
+console.group('使用replacer参数自定义序列化')
+function replacer(key, value) {
+  if (typeof value === "string") {
+    return undefined;
+  }
+  return value;
+}
+
+var foo = {foundation: "Mozilla", model: "box", week: 45, transport: "car", month: 7};
+
+// replacer 是个函数
+console.log( JSON.stringify(foo, replacer) ); // {"week":45,"month":7}
+
+// replacer 是个数组，只序列号指定字段
+console.log( JSON.stringify(foo, ['week', 'month']) ); // {"week":45,"month":7}
+
+console.groupEnd();
+</script>
+</body>
+</html>

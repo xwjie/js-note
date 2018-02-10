@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+// 直接1.toString 报错
+
+function a(){return 1};
+console.log(a().toString()); // "1"
+console.log((1).toString()); // "1"
+
+// 实现如下语法的功能：var a = (5).plus(3).minus(6); //2
+
+Number.prototype.plus = function(a) {
+  return this + a;
+};
+
+Number.prototype.minus = function(a) {
+  return this - a;
+};
+
+var a = (5).plus(3).minus(6);
+console.log(a); // 2
+
+// 还可以这样调用
+// 在数值上调用某个方法，数值会自动转为实例对象
+var b = 5['plus'](3)['minus'](6);
+console.log(b); // 2
+
+</script>
+
+</body>
+</html>
