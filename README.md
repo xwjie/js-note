@@ -8,9 +8,9 @@
 * [相等判断](js-equal.md)
 * [一等公民-函数](function.md)
 * [上下文](js-this.md)
+* [prototype和constructor](prototype-constructor.md)
 * [js的数字number](jsde-shu-zi-number.md)
 * [JSON.stringify函数](json-stringify.md)
-* [js的小括号](js-parentheses.md)
 * [prototype和constructor](prototype-constructor.md)
 * [js的小数点](js-dot.md)
 
