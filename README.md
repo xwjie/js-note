@@ -11,6 +11,5 @@
 * [prototype和constructor](prototype-constructor.md)
 * [js的数字number](jsde-shu-zi-number.md)
 * [JSON.stringify函数](json-stringify.md)
-* [prototype和constructor](prototype-constructor.md)
 * [js的小数点](js-dot.md)
 
