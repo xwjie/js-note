@@ -1,5 +1,7 @@
 # js的小括号
 
+## 
+
 ## 执行多个表达式，并返回最后一个表达式的值
 
 \(1,2+3,4\) //4
@@ -19,6 +21,23 @@ function a(){return 1};
 a().toString() // "1"
 
 (1).toString() // "1"
+```
+
+## 实现如下语法的功能：var a = \(5\).plus\(3\).minus\(6\); //2
+
+很明显应该在Number原型上加方法。
+
+```js
+Number.prototype.plus = function(a) {
+  return this + a;
+};
+ 
+Number.prototype.minus = function(a) {
+  return this - a;
+};
+ 
+var a = (5).plus(3).minus(6);
+console.log(a); // 2
 ```
 
 
