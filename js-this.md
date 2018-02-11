@@ -1,8 +1,12 @@
 # 上下文
 
-参考： http://www.cnblogs.com/TomXu/archive/2012/01/12/2308594.html
+参考： [http://www.cnblogs.com/TomXu/archive/2012/01/12/2308594.html](http://www.cnblogs.com/TomXu/archive/2012/01/12/2308594.html)
 
-上下文就是函数里面的this，js里面函数的上下文是可以动态改变的。
+上下文就是函数里面的this，this 是进入上下文时确定，并且在上下文运行期间永久不变。在一个函数代码中，这个值在每一次完全不同。\(this不是变量，不能赋值\)。
+
+首先，在通常的函数调用中，this 是由激活上下文代码的调用者来提供的，即调用函数的父上下文 \(parent context\)。this 取决于调用函数的方式。
+
+参考： http://www.cnblogs.com/TomXu/archive/2012/01/17/2310479.html
 
 ```js
 var User = {
@@ -20,6 +24,14 @@ console.log(func()); //undifined
 ```
 
 第一次调用，在user对象里面调用，this就是user，第二次调用func是在window下，所以是undifined。
+
+```js
+// 我的理解
+a.b(); // a 就是this
+
+var func = User.getCount;
+console.log(func()); // 这里相当于 window.func() 所以，this = window
+```
 
 帖子里还有手工实现bind的代码。\(可以看出，bind返回了一个新函数，里面的self就是函数\)
 
