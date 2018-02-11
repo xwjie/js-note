@@ -10,9 +10,18 @@ function foo(){ console.log('invoked'); }( 1 ); // 1，但函数并没有执行�
 
 // 因为它完全等价于下面这个代码，一个function声明后面，又声明了一个毫无关系的表达式： 
 function foo(){ console.log('invoked'); }
- 
+
 ( 1 );
 ```
+
+如：
+
+```js
+() // Uncaught SyntaxError: Unexpected token )
+(1) // 1
+```
+
+
 
 因为JavaScript里括弧\(\)里面不能包含语句，所以在这一点上，解析器在解析function关键字的时候，会将相应的代码解析成function表达式，而不是function声明。引自： [http://www.cnblogs.com/TomXu/archive/2011/12/31/2289423.html](http://www.cnblogs.com/TomXu/archive/2011/12/31/2289423.html)
 
