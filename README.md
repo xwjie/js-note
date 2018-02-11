@@ -13,4 +13,5 @@
 * [JSON.stringify函数](json-stringify.md)
 * [js的小数点](js-dot.md)
 * [clone属性-Object.assign](js-clone.md)
+* [严格模式](yan-ge-mo-shi.md)
 
