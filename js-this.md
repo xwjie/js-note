@@ -1,5 +1,7 @@
 # 上下文
 
+参考： http://www.cnblogs.com/TomXu/archive/2012/01/12/2308594.html
+
 上下文就是函数里面的this，js里面函数的上下文是可以动态改变的。
 
 ```js
@@ -51,7 +53,7 @@ call和apply是 `调用`，作用一样，只是函数接受参数的方式不�
   function log(){
     console.log.apply(console, arguments);
   };
-  
+
   // 更加简单的是 log = console.log ，但这个时候log是个变量，注意变量提升问题。
 ```
 
