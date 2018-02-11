@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+console.group('非严格模式');
+(function(){
+  var s = 'abc';
+  s.a = 1;
+  console.log(Object.isExtensible(s)); // false
+  console.log(Object.isFrozen(s)); // true
+  console.log(Object.isSealed(s));  // true
+  console.log(s.a); // undefined;
+}());
+console.groupEnd();
+
+</script>
+
+<script>
+console.group('严格模式');
+(function(){
+  'use strict'
+  var s = 'abc';
+  console.log(Object.isExtensible(s)); // false
+  console.log(Object.isFrozen(s)); // true
+  console.log(Object.isSealed(s));  // true
+  s.a = 1;
+  console.log(s.a); // Uncaught TypeError: Cannot create property 'a' on string 'abc'
+}());
+console.groupEnd();
+</script>
+
+</body>
+</html>
