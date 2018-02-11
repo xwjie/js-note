@@ -6,7 +6,7 @@
 
 首先，在通常的函数调用中，this 是由激活上下文代码的调用者来提供的，即调用函数的父上下文 \(parent context\)。this 取决于调用函数的方式。
 
-参考： http://www.cnblogs.com/TomXu/archive/2012/01/17/2310479.html
+参考： [http://www.cnblogs.com/TomXu/archive/2012/01/17/2310479.html](http://www.cnblogs.com/TomXu/archive/2012/01/17/2310479.html)
 
 ```js
 var User = {
@@ -25,12 +25,27 @@ console.log(func()); //undifined
 
 第一次调用，在user对象里面调用，this就是user，第二次调用func是在window下，所以是undifined。
 
+## 我的理解
+
 ```js
-// 我的理解
 a.b(); // a 就是this
 
 var func = User.getCount;
 console.log(func()); // 这里相当于 window.func() 所以，this = window
+
+// 但要注意下面这种情况
+  function foo() {
+    console.log('this1', this);
+    
+    function bar() {
+      console.log('this2', this); // global
+    }
+
+    bar(); 
+  }
+
+  foo(); // this1=window, this2=window
+  foo.call({}); // this1={}, this2=window
 ```
 
 帖子里还有手工实现bind的代码。\(可以看出，bind返回了一个新函数，里面的self就是函数\)
