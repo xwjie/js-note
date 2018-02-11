@@ -1,19 +1,33 @@
 # strict严格模式
 
-立即执行函数
+参考： https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict\_mode
 
-因为JavaScript里括弧\(\)里面不能包含语句，所以在这一点上，解析器在解析function关键字的时候，会将相应的代码解析成function表达式，而不是function声明。
+在非严格模式下，很多错误语句不会报错，但运行的结果也不会是我们预期的结果。如
 
+```js
+(function(){
+  var s = 'abc';
+  s.a = 1;
+  console.log(Object.isExtensible(s)); // false
+  console.log(Object.isFrozen(s)); // true
+  console.log(Object.isSealed(s));  // true
+  console.log(s.a); // undefined;
+}());
 ```
-(function () { /* code */ } ()); // 推荐使用这个
-(function () { /* code */ })(); // 但是这个也是可以用的
+
+这个时候我们需要使用严格模式，错误的语句执行的时候就会报错！
+
+```js
+(function(){
+  'use strict'
+  var s = 'abc';
+  console.log(Object.isExtensible(s)); // false
+  console.log(Object.isFrozen(s)); // true
+  console.log(Object.isSealed(s));  // true
+  s.a = 1;
+  console.log(s.a); // Uncaught TypeError: Cannot create property 'a' on string 'abc'
+}());
 ```
-
-
-
-
-
-
 
 
 
