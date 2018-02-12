@@ -25,29 +25,6 @@ console.log(func()); //undifined
 
 第一次调用，在user对象里面调用，this就是user，第二次调用func是在window下，所以是undifined。
 
-## 我的理解
-
-```js
-a.b(); // a 就是this
-
-var func = User.getCount;
-console.log(func()); // 这里相当于 window.func() 所以，this = window
-
-// 但要注意下面这种情况
-  function foo() {
-    console.log('this1', this);
-    
-    function bar() {
-      console.log('this2', this); // global
-    }
-
-    bar(); 
-  }
-
-  foo(); // this1=window, this2=window
-  foo.call({}); // this1={}, this2=window
-```
-
 帖子里还有手工实现bind的代码。\(可以看出，bind返回了一个新函数，里面的self就是函数\)
 
 ```js
@@ -64,6 +41,36 @@ Function.prototype.bind = Function.prototype.bind || function(context){
 参考：[https://segmentfault.com/a/1190000000375138](https://segmentfault.com/a/1190000000375138)
 
 ## 
+
+## 我的理解
+
+```js
+a.b(); // a 就是this
+
+var func = User.getCount;
+console.log(func()); // 这里相当于 window.func() 所以，this = window
+
+// 但要注意下面这种情况
+  function foo() {
+    console.log('this1', this);
+    
+    function bar() {
+      console.log('this2', this); // 永远是 global
+    }
+
+    var bar2 = function(){
+      console.log('this3', this);  // 永远是 global
+    }
+
+    bar(); 
+    bar2();
+  }
+
+  foo(); // this1，this2 ，this3 =window
+  foo.call({}); // this1={}, this2，this3=window
+```
+
+
 
 ## 上下文和call，apply，bind
 
