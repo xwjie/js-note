@@ -52,23 +52,24 @@ console.log(func()); // 这里相当于 window.func() 所以，this = window
 
 // 但要注意下面这种情况
 // 只要方法不是已 a.b 调用的，那么a就是undefined，就是说this是undefined，默认就是指向window
-  function foo() {
-    console.log('this1', this);
+// 如下代码的bar和bar2，他们都不是a.b的这种调用形式，那么this就是window。
+function foo() {
+  console.log('this1', this);
 
-    function bar() {
-      console.log('this2', this); // 永远是 global
-    }
-
-    var bar2 = function(){
-      console.log('this3', this);  // 永远是 global
-    }
-
-    bar(); 
-    bar2();
+  function bar() {
+    console.log('this2', this); // 永远是 global
   }
 
-  foo(); // this1，this2 ，this3 =window
-  foo.call({}); // this1={}, this2，this3=window
+  var bar2 = function(){
+    console.log('this3', this);  // 永远是 global
+  }
+
+  bar(); 
+  bar2();
+}
+
+foo(); // this1，this2 ，this3 =window
+foo.call({}); // this1={}, this2，this3=window
 ```
 
 ## 上下文和call，apply，bind
