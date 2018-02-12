@@ -70,6 +70,9 @@ function foo() {
 
 foo(); // this1，this2 ，this3 =window
 foo.call({}); // this1={}, this2，this3=window
+
+// 还有直接执行的函数，this都是undefined，默认都是window
+(function(){console.log(this);}()); // this总是window
 ```
 
 ## 上下文和call，apply，bind
