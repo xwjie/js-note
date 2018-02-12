@@ -44,11 +44,13 @@ Function.prototype.bind = Function.prototype.bind || function(context){
 
 ## 我的理解
 
+**严格模式下，不是a.b的调用从时候，this是undefined，非严格模式下，默认会是window。**
+
 ```js
 a.b(); // a 就是this
 
 var func = User.getCount;
-console.log(func()); // 这里相当于 window.func() 所以，this = window
+console.log(func()); // this = window
 
 // 但要注意下面这种情况
 // 只要方法不是已 a.b 调用的，那么a就是undefined，就是说this是undefined，默认就是指向window
@@ -73,6 +75,27 @@ foo.call({}); // this1={}, this2，this3=window
 
 // 还有直接执行的函数，this都是undefined，默认都是window
 (function(){console.log(this);}()); // this总是window
+```
+
+
+
+发现理解有偏差，严格模式下
+
+```js
+'use strict'
+
+var func = User.getCount;
+
+console.log(func()); // this = undefined
+console.log(window.func()); // this = window
+
+// but 这样定义的函数，2种情况都是window，不知道为什么！
+function f1(){console.log(this);}
+
+console.log(f1()); // this = window
+console.log(window.f1()); // this = window
+
+
 ```
 
 ## 上下文和call，apply，bind
