@@ -77,8 +77,6 @@ foo.call({}); // this1={}, this2，this3=window
 (function(){console.log(this);}()); // this总是window
 ```
 
-
-
 发现理解有偏差，严格模式下
 
 ```js
@@ -94,8 +92,6 @@ function f1(){console.log(this);}
 
 console.log(f1()); // this = window
 console.log(window.f1()); // this = window
-
-
 ```
 
 ## 上下文和call，apply，bind
@@ -144,6 +140,30 @@ Math.max 是不能接受数组格式的参数的，我们可以使用apply。如
   var ans = Math.max.apply(null, a);
   console.log(ans);  // 6
 ```
+
+## 使用call或者apply保护默认方法
+
+语言默认的方法可以被改写，这个时候我们可以这样来调用：
+
+```js
+(function(){
+  var obj = {
+      hasOwnProperty: function(){
+        return false;
+      },
+      some: 'some prototype'
+  };
+
+  // hasOwnProperty 被改写了
+  console.log(obj.hasOwnProperty('some')); // false
+
+  // 使用call来调用object上原来的方法
+  console.log(Object.hasOwnProperty.call(obj, 'some')); // true
+  console.log(({}).hasOwnProperty.call(obj, 'some')); // true
+}())
+```
+
+
 
 
 
