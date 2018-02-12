@@ -156,14 +156,21 @@ Math.max 是不能接受数组格式的参数的，我们可以使用apply。如
 
   // hasOwnProperty 被改写了
   console.log(obj.hasOwnProperty('some')); // false
-
+  
   // 使用call来调用object上原来的方法
   console.log(Object.hasOwnProperty.call(obj, 'some')); // true
   console.log(({}).hasOwnProperty.call(obj, 'some')); // true
+  
+  // 能正确找到
+  for(var key in obj){
+    console.log(key, obj[key]);
+  }
+  
+  console.log('keys',Object.keys(obj)); // ["hasOwnProperty", "some"]
+  console.log('keys',Object.getOwnPropertyNames(obj)); // ["hasOwnProperty", "some"]
+
 }())
 ```
-
-
 
 
 
